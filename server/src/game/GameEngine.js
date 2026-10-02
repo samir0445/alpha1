@@ -125,7 +125,6 @@ export class GameEngine {
         if (allPlayers.length === 0) {
           this.clearTimer(roomId);
           this.rooms.delete(roomId);
-          console.log(`Room ${roomId} purged from RAM.`);
           return;
         }
 

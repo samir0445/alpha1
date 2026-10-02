@@ -57,8 +57,6 @@ const io = new Server(server, {
 const gameEngine = new GameEngine(io);
 
 io.on("connection", (socket) => {
-  console.log(`[Socket] Connected: ${socket.id}`);
-
   // Client -> Server: join-room
   socket.on("join-room", ({ roomId, username }) => {
     gameEngine.createOrJoinRoom(roomId, username, socket);
@@ -106,11 +104,8 @@ io.on("connection", (socket) => {
 
   // Disconnect
   socket.on("disconnect", () => {
-    console.log(`[Socket] Disconnected: ${socket.id}`);
     gameEngine.handleDisconnect(socket.id);
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`🚀 Wordy server running on http://localhost:${PORT}`);
-});
+server.listen(PORT);

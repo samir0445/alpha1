@@ -42,12 +42,10 @@ export const GameProvider = ({ children }) => {
     });
 
     newSocket.on("connect", () => {
-      console.log("[Socket] Connected with ID:", newSocket.id);
       setConnected(true);
     });
 
     newSocket.on("disconnect", () => {
-      console.log("[Socket] Disconnected");
       setConnected(false);
     });
 
