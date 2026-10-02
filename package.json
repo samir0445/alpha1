@@ -1,0 +1,15 @@
+{
+  "name": "wordy-game",
+  "version": "1.0.0",
+  "description": "Wordy — Real-time Multiplayer Drawing and Guessing Game",
+  "scripts": {
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"blue,magenta\" \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "start": "node server/src/server.js",
+    "build": "npm run build --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.4"
+  }
+}

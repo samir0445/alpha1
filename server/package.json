@@ -1,0 +1,17 @@
+{
+  "name": "wordy-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Wordy real-time multiplayer drawing & word guessing game server",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^18.0.5",
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}
