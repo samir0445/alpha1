@@ -37,7 +37,7 @@ export const GameProvider = ({ children }) => {
       : window.location.origin);
 
     const newSocket = io(serverUrl, {
-      transports: ["websocket", "polling"],
+      transports: ["polling", "websocket"],
       reconnectionAttempts: 10,
     });
 

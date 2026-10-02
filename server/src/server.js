@@ -19,9 +19,17 @@ const corsOptions = {
   origin: (origin, callback) => {
     // Allow requests with no origin (e.g., mobile apps, curl, server-to-server)
     if (!origin) return callback(null, true);
+    
+    // Allow wildcard or explicit match
     if (allowedOrigins.includes("*") || allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
+
+    // Allow all vercel preview and production deployments automatically
+    if (/^https:\/\/.*\.vercel\.app$/.test(origin)) {
+      return callback(null, true);
+    }
+
     return callback(new Error(`Origin ${origin} not allowed by CORS`));
   },
   methods: ["GET", "POST"],
